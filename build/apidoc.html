@@ -1,0 +1,210 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/ForbesLindesay/umd"
+
+    >umd (v3.0.1)</a>
+</h1>
+<h4>Universal Module Definition for use in automated build systems</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.umd">module umd</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.umd.umd">
+            function <span class="apidocSignatureSpan"></span>umd
+            <span class="apidocSignatureSpan">(name, src, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.umd.postlude">
+            function <span class="apidocSignatureSpan">umd.</span>postlude
+            <span class="apidocSignatureSpan">(moduleName, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.umd.prelude">
+            function <span class="apidocSignatureSpan">umd.</span>prelude
+            <span class="apidocSignatureSpan">(moduleName, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.umd.toString">
+            function <span class="apidocSignatureSpan">umd.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.umd" id="apidoc.module.umd">module umd</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.umd.umd" id="apidoc.element.umd.umd">
+        function <span class="apidocSignatureSpan"></span>umd
+        <span class="apidocSignatureSpan">(name, src, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">umd = function (name, src, options) {
+  if (typeof options === &#x27;string&#x27; &#x26;&#x26; typeof src === &#x27;object&#x27;) {
+    var tmp = options;
+    options = src;
+    src = tmp;
+  }
+  return exports.prelude(name, options) + src + exports.postlude(name, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.umd.postlude" id="apidoc.element.umd.postlude">
+        function <span class="apidocSignatureSpan">umd.</span>postlude
+        <span class="apidocSignatureSpan">(moduleName, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">postlude = function (moduleName, options) {
+  return template(moduleName, options)[1];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  If `source` should be a string, that is wrapped in umd and returned as a string.
+
+### umd.prelude(module, [options])
+
+  return the text which will be inserted before a module.
+
+### umd.<span class="apidocCodeKeywordSpan">postlude</span>(module, [options])
+
+  return the text which will be inserted after a module.
+
+## Command Line
+
+```
+Usage: umd &#x3c;name&#x3e; &#x3c;source&#x3e; &#x3c;destination&#x3e; [options]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.umd.prelude" id="apidoc.element.umd.prelude">
+        function <span class="apidocSignatureSpan">umd.</span>prelude
+        <span class="apidocSignatureSpan">(moduleName, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prelude = function (moduleName, options) {
+  return template(moduleName, options)[0];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### umd(name, source, [options])
+
+The `name` should the the name of the module.  Use a string like name, all lower case with hyphens instead of spaces.
+
+If `source` should be a string, that is wrapped in umd and returned as a string.
+
+### umd.<span class="apidocCodeKeywordSpan">prelude</span>(module, [options])
+
+return the text which will be inserted before a module.
+
+### umd.postlude(module, [options])
+
+return the text which will be inserted after a module.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.umd.toString" id="apidoc.element.umd.toString">
+        function <span class="apidocSignatureSpan">umd.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
