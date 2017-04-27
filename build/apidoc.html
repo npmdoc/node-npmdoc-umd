@@ -72,6 +72,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.umd.index">
+            function <span class="apidocSignatureSpan">umd.</span>index
+            <span class="apidocSignatureSpan">(name, src, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.umd.postlude">
             function <span class="apidocSignatureSpan">umd.</span>postlude
             <span class="apidocSignatureSpan">(moduleName, options)</span>
@@ -83,6 +92,37 @@
 
             <a class="apidocElementLiA" href="#apidoc.element.umd.prelude">
             function <span class="apidocSignatureSpan">umd.</span>prelude
+            <span class="apidocSignatureSpan">(moduleName, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.umd.index">module umd.index</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.umd.index.index">
+            function <span class="apidocSignatureSpan">umd.</span>index
+            <span class="apidocSignatureSpan">(name, src, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.umd.index.postlude">
+            function <span class="apidocSignatureSpan">umd.index.</span>postlude
+            <span class="apidocSignatureSpan">(moduleName, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.umd.index.prelude">
+            function <span class="apidocSignatureSpan">umd.index.</span>prelude
             <span class="apidocSignatureSpan">(moduleName, options)</span>
             </a>
 
@@ -117,6 +157,26 @@
 
 
     <h2>
+        <a href="#apidoc.element.umd.index" id="apidoc.element.umd.index">
+        function <span class="apidocSignatureSpan">umd.</span>index
+        <span class="apidocSignatureSpan">(name, src, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">index = function (name, src, options) {
+  if (typeof options === &#x27;string&#x27; &#x26;&#x26; typeof src === &#x27;object&#x27;) {
+    var tmp = options;
+    options = src;
+    src = tmp;
+  }
+  return exports.prelude(name, options) + src + exports.postlude(name, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
         <a href="#apidoc.element.umd.postlude" id="apidoc.element.umd.postlude">
         function <span class="apidocSignatureSpan">umd.</span>postlude
         <span class="apidocSignatureSpan">(moduleName, options)</span>
@@ -128,20 +188,20 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-  If `source` should be a string, that is wrapped in umd and returned as a string.
+exports = module.exports = function (name, src, options) {
+if (typeof options === &#x27;string&#x27; &#x26;&#x26; typeof src === &#x27;object&#x27;) {
+  var tmp = options;
+  options = src;
+  src = tmp;
+}
+return exports.prelude(name, options) + src + exports.<span class="apidocCodeKeywordSpan">postlude</span>(name, options);
+};
 
-### umd.prelude(module, [options])
-
-  return the text which will be inserted before a module.
-
-### umd.<span class="apidocCodeKeywordSpan">postlude</span>(module, [options])
-
-  return the text which will be inserted after a module.
-
-## Command Line
-
-```
-Usage: umd &#x3c;name&#x3e; &#x3c;source&#x3e; &#x3c;destination&#x3e; [options]
+exports.prelude = function (moduleName, options) {
+return template(moduleName, options)[0];
+};
+exports.postlude = function (moduleName, options) {
+return template(moduleName, options)[1];
 ...</pre></li>
     </ul>
 
@@ -159,19 +219,107 @@ Usage: umd &#x3c;name&#x3e; &#x3c;source&#x3e; &#x3c;destination&#x3e; [options]
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-### umd(name, source, [options])
+exports = module.exports = function (name, src, options) {
+if (typeof options === &#x27;string&#x27; &#x26;&#x26; typeof src === &#x27;object&#x27;) {
+  var tmp = options;
+  options = src;
+  src = tmp;
+}
+return exports.<span class="apidocCodeKeywordSpan">prelude</span>(name, options) + src + exports.postlude(name, options);
+};
 
-The `name` should the the name of the module.  Use a string like name, all lower case with hyphens instead of spaces.
+exports.prelude = function (moduleName, options) {
+return template(moduleName, options)[0];
+};
+exports.postlude = function (moduleName, options) {
+return template(moduleName, options)[1];
+...</pre></li>
+    </ul>
 
-If `source` should be a string, that is wrapped in umd and returned as a string.
 
-### umd.<span class="apidocCodeKeywordSpan">prelude</span>(module, [options])
+</div>
 
-return the text which will be inserted before a module.
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.umd.index" id="apidoc.module.umd.index">module umd.index</a></h1>
 
-### umd.postlude(module, [options])
 
-return the text which will be inserted after a module.
+    <h2>
+        <a href="#apidoc.element.umd.index.index" id="apidoc.element.umd.index.index">
+        function <span class="apidocSignatureSpan">umd.</span>index
+        <span class="apidocSignatureSpan">(name, src, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">index = function (name, src, options) {
+  if (typeof options === &#x27;string&#x27; &#x26;&#x26; typeof src === &#x27;object&#x27;) {
+    var tmp = options;
+    options = src;
+    src = tmp;
+  }
+  return exports.prelude(name, options) + src + exports.postlude(name, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.umd.index.postlude" id="apidoc.element.umd.index.postlude">
+        function <span class="apidocSignatureSpan">umd.index.</span>postlude
+        <span class="apidocSignatureSpan">(moduleName, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">postlude = function (moduleName, options) {
+  return template(moduleName, options)[1];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+exports = module.exports = function (name, src, options) {
+if (typeof options === &#x27;string&#x27; &#x26;&#x26; typeof src === &#x27;object&#x27;) {
+  var tmp = options;
+  options = src;
+  src = tmp;
+}
+return exports.prelude(name, options) + src + exports.<span class="apidocCodeKeywordSpan">postlude</span>(name, options);
+};
+
+exports.prelude = function (moduleName, options) {
+return template(moduleName, options)[0];
+};
+exports.postlude = function (moduleName, options) {
+return template(moduleName, options)[1];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.umd.index.prelude" id="apidoc.element.umd.index.prelude">
+        function <span class="apidocSignatureSpan">umd.index.</span>prelude
+        <span class="apidocSignatureSpan">(moduleName, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prelude = function (moduleName, options) {
+  return template(moduleName, options)[0];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+exports = module.exports = function (name, src, options) {
+if (typeof options === &#x27;string&#x27; &#x26;&#x26; typeof src === &#x27;object&#x27;) {
+  var tmp = options;
+  options = src;
+  src = tmp;
+}
+return exports.<span class="apidocCodeKeywordSpan">prelude</span>(name, options) + src + exports.postlude(name, options);
+};
+
+exports.prelude = function (moduleName, options) {
+return template(moduleName, options)[0];
+};
+exports.postlude = function (moduleName, options) {
+return template(moduleName, options)[1];
 ...</pre></li>
     </ul>
 
