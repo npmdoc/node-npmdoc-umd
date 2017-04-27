@@ -1,6 +1,6 @@
 # npmdoc-umd
 
-#### api documentation for  [umd (v3.0.1)](https://github.com/ForbesLindesay/umd)  [![npm package](https://img.shields.io/npm/v/npmdoc-umd.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-umd) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-umd.svg)](https://travis-ci.org/npmdoc/node-npmdoc-umd)
+#### basic api documentation for  [umd (v3.0.1)](https://github.com/ForbesLindesay/umd)  [![npm package](https://img.shields.io/npm/v/npmdoc-umd.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-umd) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-umd.svg)](https://travis-ci.org/npmdoc/node-npmdoc-umd)
 
 #### Universal Module Definition for use in automated build systems
 
